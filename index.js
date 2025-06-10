@@ -5,111 +5,135 @@
 const display = document.getElementById("answer-display");
 let formula = "";
 
+function updateDisplay() {
+    display.scrollLeft = display.scrollWidth;
+}
+
 // first row
 function cClicked() {
     formula = formula.slice(0, -1);
     display.value = formula;
+    updateDisplay();
 }
 
 function acClicked() {
     formula = "";
     display.value = formula;
+    updateDisplay();
 }
 
 function lpClicked() {
     formula = formula.concat('(');
     display.value = formula;
+    updateDisplay();
 }
 
 function rpClicked() {
     formula = formula.concat(')');
     display.value = formula;
+    updateDisplay();
 }
 
 
-// second row
+// fourth row
 function oneClicked() {
     formula = formula.concat('1');
     display.value = formula;
+    updateDisplay();
 }
 
 function twoClicked() {
     formula = formula.concat('2');
     display.value = formula;
+    updateDisplay();
 }
 
 function threeClicked() {
     formula = formula.concat('3');
     display.value = formula;
+    updateDisplay();
 }
 
 function addClicked() {
-    formula = formula.concat(' + ');
+    formula = formula.concat('+');
     display.value = formula;
+    updateDisplay();
 }
 
 // third row
 function fourClicked() {
     formula = formula.concat('4');
     display.value = formula;
+    updateDisplay();
 }
 
 function fiveClicked() {
     formula = formula.concat('5');
     display.value = formula;
+    updateDisplay();
 }
 
 function sixClicked() {
     formula = formula.concat('6');
     display.value = formula;
+    updateDisplay();
 }
 
 function minusClicked() {
-    formula = formula.concat(' - ');
+    formula = formula.concat('-');
     display.value = formula;
+    updateDisplay();
 }
 
-// fourth row
+// second row
 function sevenClicked() {
     formula = formula.concat('7');
     display.value = formula;
+    updateDisplay();
 }
 
 function eightClicked() {
     formula = formula.concat('8');
     display.value = formula;
+    updateDisplay();
 }
 
 function nineClicked() {
     formula = formula.concat('9');
     display.value = formula;
+    updateDisplay();
 }
 
 function timesClicked() {
-    formula = formula.concat(' * ');
+    formula = formula.concat('*');
     display.value = formula;
+    updateDisplay();
 }
 
 // last row
 function zeroClicked() {
     formula = formula.concat('0');
     display.value = formula;
+    updateDisplay();
 }
 
 function dotClicked() {
     formula = formula.concat('.');
     display.value = formula;
+    updateDisplay();
 }
 
 function divideClicked() {
-    formula = formula.concat(' / ');
+    formula = formula.concat('/');
     display.value = formula;
+    updateDisplay();
 }
 
 // animated calculating text with the help of ChatGPT
 function calculate() {
-    const symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=';
-    
+    // const symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=';
+    const symbols = '10'; // binary alternative
+
     let result;
     try {
         result = eval(formula).toString(); // Final answer as string

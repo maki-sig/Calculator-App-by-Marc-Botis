@@ -74,6 +74,19 @@ span {
     color: lime;
 }
 
+#answer-display {
+    font-size: 2rem;
+    height: 3rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: right;
+    padding: 0.5rem;
+}
+
+#answer-display::-webkit-scrollbar {
+    display: none;  
+}
+
 /* * {
     outline: red 1px solid;
 } */
