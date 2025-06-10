@@ -106,12 +106,37 @@ function divideClicked() {
     display.value = formula;
 }
 
+// animated calculating text with the help of ChatGPT
 function calculate() {
-
+    const symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=';
+    
+    let result;
     try {
-        display.value = eval(formula);
-        formula = display.value;
+        result = eval(formula).toString(); // Final answer as string
     } catch (error) {
         display.value = "Error";
+        return;
     }
+
+    let currentLength = display.value.length;
+    const targetLength = result.length;
+    const intervalTime = 60; // 60ms
+
+    const animation = setInterval(() => {
+        let shuffled = '';
+        for (let i = 0; i < currentLength; i++) {
+            shuffled += symbols[Math.floor(Math.random() * symbols.length)];
+        }
+
+        display.value = shuffled;
+
+        // Gradually decrease length toward result length
+        if (currentLength > targetLength) {
+            currentLength--;
+        } else {
+            clearInterval(animation);
+            display.value = result;
+            formula = result; // Update formula to result for next calculation
+        }
+    }, intervalTime);
 }
